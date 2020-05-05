@@ -25,7 +25,7 @@ class SendNotification implements ShouldQueue
 
     public function handle()
     {
-        $type = $this->message->types->key;
+        $type = $this->message->types[0]->key;
 
         if ($type == 'push'){
             $this->pushMessage($this->message);

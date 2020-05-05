@@ -14,6 +14,6 @@ class FadenMessageType extends Model
 
     public function message()
     {
-        return $this->belongsTo(FadenMessage::class);
+        return $this->belongsTo(FadenMessage::class, 'id','message_type');
     }
 }
