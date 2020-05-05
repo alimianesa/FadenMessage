@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Faden\FadenMessageModule\Http\Controllers;
 
 use Alive2212\LaravelSmartRestful\SmartCrudController;
 use App\FadenMessageType;

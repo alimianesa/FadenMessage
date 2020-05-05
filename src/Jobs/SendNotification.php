@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Jobs;
+namespace Faden\FadenMessageModule\Jobs;
 
-use App\Notifications\MailNotification;
+use Faden\FadenMessageModule\Notifications\MailNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -25,7 +25,7 @@ class SendNotification implements ShouldQueue
 
     public function handle()
     {
-        $type = $this->message->message_type;
+        $type = $this->message->types->key;
 
         if ($type == 'push'){
             $this->pushMessage($this->message);

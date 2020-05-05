@@ -16,6 +16,13 @@ class CreateFadenMessagesTable extends Migration
         Schema::create('faden_messages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("message_type")->nullable();
+            $table->foreign('message_type')
+                ->references('id')
+                ->on('faden_message_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+
 
             // Author
             $table->integer("author_id");
@@ -36,9 +43,9 @@ class CreateFadenMessagesTable extends Migration
 
 
             // Active
-            $table->boolean('active');
-            $table->string('priority')->nullable();
-            $table->unsignedBigInteger("sent_at");
+            $table->boolean('active')->default(1);
+            $table->string('priority')->nullable()->default('immediately');
+            $table->unsignedBigInteger("sent_at")->default(now());
 
             $table->timestamps();
         });

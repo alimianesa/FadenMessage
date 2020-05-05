@@ -40,6 +40,11 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=your@address.com
 MAIL_FROM_NAME= Name
 ````
+
+Migrate
+```shell script
+php artisan migrate
+``` 
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
