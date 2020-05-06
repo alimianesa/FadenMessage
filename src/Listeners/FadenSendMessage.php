@@ -10,6 +10,6 @@ class FadenSendMessage
     public function handle(FadenMessageEvent $event)
     {
         SendNotification::dispatch($event)
-            ->delay(now()->addSeconds($event->message->sent_at));
+            ->delay(now()->addSeconds($event->message->type->sends_in));
     }
 }

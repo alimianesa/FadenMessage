@@ -22,10 +22,8 @@ class CreateFadenMessagesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-
-
             // Author
-            $table->integer("author_id");
+            $table->integer("author_id")->default(1);
             $table->string("bc")->nullable();
             $table->string('to');
             $table->string('cc')->nullable();
@@ -43,9 +41,9 @@ class CreateFadenMessagesTable extends Migration
 
 
             // Active
-            $table->boolean('active')->default(1);
+            $table->boolean('active')->nullable()->default(1);
             $table->string('priority')->nullable()->default('immediately');
-            $table->unsignedBigInteger("sent_at")->default(now());
+            $table->unsignedBigInteger("sent_at")->nullable();
 
             $table->timestamps();
         });

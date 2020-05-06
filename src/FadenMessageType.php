@@ -13,6 +13,6 @@ class FadenMessageType extends Model
 
     public function message()
     {
-        return $this->hasMany(FadenMessage::class, 'id','message_type');
+        return $this->hasMany(FadenMessage::class,'message_type', 'id');
     }
 }

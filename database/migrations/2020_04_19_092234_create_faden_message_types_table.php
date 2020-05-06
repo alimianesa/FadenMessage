@@ -23,7 +23,7 @@ class CreateFadenMessageTypesTable extends Migration
             $table->string("subtitle")->nullable();
 
             // Active
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->unsignedBigInteger("sends_in")->nullable();
             $table->timestamps();
         });

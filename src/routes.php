@@ -20,7 +20,7 @@ Route::namespace('Faden\FadenMessageModule\Http\Controllers')->prefix('api')->gr
            Route::prefix('message')->group(function () {
                Route::post('/push' , 'FadenMessageController@push');
                Route::post('/mail' , 'FadenMessageController@send');
-
+               Route::post('/test' , 'FadenMessageController@test');
            });
        });
    });
