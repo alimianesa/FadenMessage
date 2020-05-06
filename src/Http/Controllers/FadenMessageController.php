@@ -19,25 +19,7 @@ class FadenMessageController extends Controller
 
     public function send(Request $request)
     {
-
         $message = FadenMessage::create($request);
-
-        Notification::route('mail', $message->to)->notify( new MailNotification($message));
-    }
-
-    public function test()
-    {
-        $data = [
-            'message_type' => 1,
-            'body' => "User Created",
-            'title' =>'title',
-            'to' =>'ali.salimiansas2@gmail.com',
-            'author_id'  => 1,
-            'priority' =>  "immediately",
-            'sent_at' => time() ,
-        ];
-        $message = FadenMessage::create($data);
-
         Notification::route('mail', $message->to)->notify( new MailNotification($message));
     }
 
