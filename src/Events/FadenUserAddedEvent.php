@@ -6,7 +6,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use App\User;
 
-class UserCreated
+class FadenUserAddedEvent
 {
     use Dispatchable, SerializesModels;
 

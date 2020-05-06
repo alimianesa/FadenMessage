@@ -19,10 +19,14 @@ $ composer require faden/fadenmessagemodule
 
 Add following code into User.php :
 ````php
+protected $dispatchesEvents = [
+        'saved'=> \Faden\FadenMessageModule\Events\FadenUserAddedEvent::class,
+    ];
+
 public function messages()
     {
         return $this->belongsToMany(
-            FadenMessage::class,
+            \Faden\FadenMessageModule\FadenMessage::class,
             'faden_message_user' ,
             'user_id',
             "message_id");
@@ -44,6 +48,10 @@ MAIL_FROM_NAME= Name
 Migrate
 ```shell script
 php artisan migrate
+``` 
+create FadenMessageType then FadenMessage model to fire event
+```php
+$messageType->message()->save($message);
 ``` 
 ## Change log
 

@@ -30,9 +30,9 @@ class FadenMessage extends Model
         );
     }
 
-    public function types()
+    public function type()
     {
-        return $this->hasMany(FadenMessageType::class ,'id','message_type');
+        return $this->belongsTo(FadenMessageType::class ,'id','message_type');
     }
 
 }
