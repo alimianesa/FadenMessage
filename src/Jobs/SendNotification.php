@@ -26,13 +26,15 @@ class SendNotification implements ShouldQueue
 
     public function handle()
     {
-        $type = $this->message->type->key;
+        if (isset($this->message->type->key)){
+            $type = $this->message->type->key;
 
-        if ($type == 'push'){
-            $this->pushMessage($this->message);
-        }
-        elseif ($type == 'email'){
-            Notification::route('mail', $this->message->to)->notify( new MailNotification($this->message));
+            if ($type == 'push'){
+                $this->pushMessage($this->message);
+            }
+            elseif ($type == 'email'){
+                Notification::route('mail', $this->message->to)->notify( new MailNotification($this->message));
+            }
         }
     }
 
