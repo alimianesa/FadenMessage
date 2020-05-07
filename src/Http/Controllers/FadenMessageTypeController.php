@@ -3,7 +3,7 @@
 namespace Faden\FadenMessageModule\Http\Controllers;
 
 use Alive2212\LaravelSmartRestful\SmartCrudController;
-use App\FadenMessageType;
+use Faden\FadenMessageModule\FadenMessageType;
 
 
 class FadenMessageTypeController extends SmartCrudController

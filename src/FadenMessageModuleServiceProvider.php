@@ -43,11 +43,10 @@ class FadenMessageModuleServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/faden-message-module.php', 'faden-message-module');
 
         //Register the event service provider
-
         $this->app->register(EventServiceProvider::class);
 
         // Register the service the package provides.
-        $this->app->singleton('faden-message-module', function ($app) {
+        $this->app->singleton('faden-message-module', function () {
             return new FadenMessageModule;
         });
     }

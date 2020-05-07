@@ -2,7 +2,7 @@
 
 namespace Faden\FadenMessageModule\Notifications;
 
-use App\FadenMessage;
+use Faden\FadenMessageModule\FadenMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -23,19 +23,19 @@ class MailNotification extends Notification
     }
 
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail'];
     }
 
-    public function routeNotificationForMail($notification)
+    public function routeNotificationForMail()
     {
 
         return $this->email_address;
     }
 
 
-    public function toMail($notifiable)
+    public function toMail()
     {
         return (new MailMessage)
             ->greeting($this->messages->title)
@@ -43,11 +43,4 @@ class MailNotification extends Notification
 
     }
 
-
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
 }

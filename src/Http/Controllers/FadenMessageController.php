@@ -8,7 +8,6 @@ use Faden\FadenMessageModule\FadenMessage;
 use App\Http\Controllers\Controller;
 use Faden\FadenMessageModule\FadenMessageType;
 use Faden\FadenMessageModule\Notifications\MailNotification;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
